@@ -7,7 +7,9 @@ su –c 'echo "$username  ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers'\
 && su -c 'vi /etc/sudoers'
 
 sudo 'cat sources.list > /etc/apt/sources.list'\
-&& sudo apt install\
+&& sudo apt update\
+&& sudo apt upgrade\
+&& sudo apt install -y\
 	git\
 	curl\
 	neofecth\
