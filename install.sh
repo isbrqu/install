@@ -2,6 +2,13 @@
 
 username="isbrqu"
 pathdot=".config/dot"
-echo "$username  ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+su –command echo "$username  ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers\
 && vi /etc/sudoers
-cat sources.list > /etc/apt/sources.list
+
+sudo cat sources.list > /etc/apt/sources.list
+
+chmod +x apt.sh\
+&& ./apt.sh
+chmod +x manual.sh\
+&& ./manual.sh
