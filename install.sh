@@ -4,6 +4,28 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
+ztmux='tmux-3.1c.tar.gz'
+zscim='v0.7.0.tar.gz'
+zdmenu='dmenu-5.0.tar.gz'
+zi3status='i3status-2.13.tar.bz2'
+
+url_tmux="https://github.com/tmux/tmux/releases/download/3.1c/$ztmux"
+url_scim="https://github.com/andmarti1424/sc-im/archive/$zscim"
+url_dmenu="https://dl.suckless.org/tools/$zdmenu"
+url_i3status="https://i3wm.org/i3status/$zi3status"
+url_vim="https://github.com/vim/vim.git"
+url_fzf="https://github.com/junegunn/fzf.git"
+url_st="https://github.com/isbrqu/st.git"
+url_googler="https://raw.githubusercontent.com/jarun/googler/v4.3.1/googler"
+
+ftmux="${ztmux%.tar.gz}"
+fscim="sc-im-0.7.0"
+fdmenu="${zdmenu%.tar.gz}"
+fi3status="${zi3status%.tar.bz2}"
+fvim="vim"
+ffzf="fzf"
+fst="st"
+
 _apt() {
 sudo apt update\
 && sudo apt upgrade -y\
@@ -28,37 +50,15 @@ sudo apt update\
 	libiw-dev\
 	asciidoc\
 	libpulse-dev\
-	libnl-genl-3-dev
+	libnl-genl-3-dev\
+	libx11-dev\
+	libxft-dev
 }
 
 _download() {
-ferror='~/scr-main/error'
-
-ztmux='tmux-3.1c.tar.gz'
-zscim='v0.7.0.tar.gz'
-zdmenu='dmenu-5.0.tar.gz'
-zi3status='i3status-2.13.tar.bz2'
-
-url_tmux="https://github.com/tmux/tmux/releases/download/3.1c/$ztmux"
-url_scim="https://github.com/andmarti1424/sc-im/archive/$zscim"
-url_dmenu="https://dl.suckless.org/tools/$zdmenu"
-url_i3status="https://i3wm.org/i3status/$zi3status"
-url_vim="https://github.com/vim/vim.git"
-url_fzf="https://github.com/junegunn/fzf.git"
-url_st="https://github.com/isbrqu/st.git"
-url_googler="https://raw.githubusercontent.com/jarun/googler/v4.3.1/googler"
-
-ftmux="${ztmux%.tar.gz}"
-fscim="sc-im-0.7.0"
-fdmenu="${zdmenu%.tar.gz}"
-fi3status="${zi3status%.tar.bz2}"
-fvim="vim"
-ffzf="fzf"
-fst="st"
 
 ([[ -d z ]] || mkdir z)\
-&& cd z\
-&& mkdir log
+&& cd z
 
 echo "tmux"
 wget "$url_tmux" --quiet
@@ -98,21 +98,22 @@ tar --extract --bzip2 --file="$zi3status"\
 }
 
 _extract() {
-cd "$ftmux"\
+cd ~/m/z/$ftmux\
 && ./configure\
 && make\
 && sudo make install\
 && cd ..
 
-cd "$fscim"\
+cd ~/m/z/$fscim\
+&& make -C src\
 && sudo make -C src install\
 && cd ..
 
-#cd "$fst"\
-# && sudo make clean install\
-# && cd ..
+cd ~/m/z/$fst\
+&& sudo make clean install\
+&& cd ..
 
-cd "$fi3status"\
+cd ~/m/z/$fi3status\
 && autoreconf -fi\
 && mkdir build\
 && cd build\
@@ -121,29 +122,33 @@ cd "$fi3status"\
 && sudo make install\
 && cd ..
 
-mv "$ffzf" ~/.fzf\
+mv ~/m/z/$ffzf ~/.fzf\
 && ~/.fzf/install
 
-chmod +x googler\
-&& sudo mv googler /usr/local/bin/googler\
+chmod +x ~/m/z/googler\
+&& sudo mv ~/m/z/googler /usr/local/bin/googler\
 && sudo googler -u
 
-cd "$fst"\
+cd ~/m/z/$fst\
 && sudo make clean install\
 && cd ..
 }
 
 _link() {
-git clone https://github.com/isbrqu/dot.git ~/.config/dot
-ln -fsr ~/.config/dot/vim ~/.vim
-ln -fsr ~/.config/dot/rofi ~/.config/rofi
-ln -fsr ~/.config/dot/git ~/.config/git
-ln -fsr ~/.config/dot/bash/inputrc ~/.inputrc
-ln -fsr ~/.config/dot/bash/logout ~/.bash_logout
-ln -fsr ~/.config/dot/bash/profile ~/.bash_profile
-ln -fsr ~/.config/dot/bash/run ~/.bashrc
-ln -fsr ~/.config/dot/i3status ~/.config/i3status
-ln -fsr ~/.config/dot/i3wm ~/.config/i3
+cd ~/.config
+git clone https://github.com/isbrqu/dot.git\
+&& cd dot
+ln -fsr vim ~/.vim
+ln -fsr rofi ~/.config/rofi
+ln -fsr git ~/.config/git
+ln -fsr bash/inputrc ~/.inputrc
+ln -fsr bash/logout ~/.bash_logout
+ln -fsr bash/profile ~/.bash_profile
+ln -fsr bash/run ~/.bashrc
+ln -fsr i3status ~/.config/i3status
+ln -fsr i3wm ~/.config/i3
+ln -fsr tmux ~/.tmux
+ln -fsr tmux/config ~/.tmux.conf
 }
 
 main() {
@@ -154,3 +159,4 @@ _link
 }
 
 main
+
