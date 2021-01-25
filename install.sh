@@ -136,20 +136,21 @@ cd ~/m/z/$fst\
 }
 
 _link() {
-cd ~/.config
-git clone https://github.com/isbrqu/dot.git\
-&& cd dot
-ln -fsr vim ~/.vim
-ln -fsr rofi ~/.config/rofi
-ln -fsr git ~/.config/git
-ln -fsr bash/inputrc ~/.inputrc
-ln -fsr bash/logout ~/.bash_logout
-ln -fsr bash/profile ~/.bash_profile
-ln -fsr bash/run ~/.bashrc
-ln -fsr i3status ~/.config/i3status
-ln -fsr i3wm ~/.config/i3
-ln -fsr tmux ~/.tmux
-ln -fsr tmux/config ~/.tmux.conf
+([[ -d ~/.config ]] || mkdir ~/.config)\
+&& cd ~/.config\
+&& git clone --recurse-submodules https://github.com/isbrqu/dot dot\
+&& cd dot\
+&& ln -fsr vim ~/.vim\
+&& ln -fsr rofi ~/.config/rofi\
+&& ln -fsr git ~/.config/git\
+&& ln -fsr bash/inputrc ~/.inputrc\
+&& ln -fsr bash/logout ~/.bash_logout\
+&& ln -fsr bash/profile ~/.bash_profile\
+&& ln -fsr bash/run ~/.bashrc\
+&& ln -fsr i3status ~/.config/i3status\
+&& ln -fsr i3wm ~/.config/i3\
+&& ln -fsr tmux ~/.tmux\
+&& ln -fsr tmux/config ~/.tmux.conf
 }
 
 main() {
