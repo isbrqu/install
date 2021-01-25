@@ -52,7 +52,8 @@ sudo apt update\
 	libpulse-dev\
 	libnl-genl-3-dev\
 	libx11-dev\
-	libxft-dev
+	libxft-dev\
+        xinput
 }
 
 _download() {
