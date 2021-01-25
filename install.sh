@@ -17,6 +17,7 @@ url_vim="https://github.com/vim/vim.git"
 url_fzf="https://github.com/junegunn/fzf.git"
 url_st="https://github.com/isbrqu/st.git"
 url_googler="https://raw.githubusercontent.com/jarun/googler/v4.3.1/googler"
+url_docker='https://download.docker.com/linux/debian/dists/buster/pool/stable/amd64'
 
 ftmux="${ztmux%.tar.gz}"
 fscim="sc-im-0.7.0"
@@ -25,6 +26,7 @@ fi3status="${zi3status%.tar.bz2}"
 fvim="vim"
 ffzf="fzf"
 fst="st"
+fdocker="docker"
 
 _apt() {
 sudo apt update\
@@ -39,6 +41,8 @@ sudo apt update\
 	ntfs-3g\
 	i3\
 	python3-pip\
+        liblua5.3-dev\
+        lua5.3\
 	build-essential\
 	bison\
 	pkg-config\
@@ -57,7 +61,12 @@ sudo apt update\
         libxtst-dev\
         libxt-dev\
         libsm-dev\
-        libxpm-dev
+        libxpm-dev\
+&& sudo apt remove\
+    vim\
+    vim-common\
+    vim-runtime\
+&& sudo apt autoremove
 }
 
 _download() {
@@ -89,6 +98,15 @@ git clone --depth 1 --quiet -- "$url_st" st
 echo "googler"
 wget "$url_googler" --quiet
 
+echo "docker"
+([[ -d docker ]] || mkdir docker)\
+&& cd docker\
+&& wget "$url_docker/containerd.io_1.4.3-1_amd64.deb" --quiet\
+&& wget "$url_docker/docker-ce-cli_20.10.2~3-0~debian-buster_amd64.deb" --quiet\
+&& wget "$url_docker/docker-ce-rootless-extras_20.10.2~3-0~debian-buster_amd64.deb" --quiet\
+&& wget "$url_docker/docker-ce_20.10.2~3-0~debian-buster_amd64.deb" --quiet\
+&& cd ..
+
 tar --extract --gunzip --file="$ztmux"\
 && rm "$ztmux"
 
@@ -100,19 +118,19 @@ tar --extract --gunzip --file="$zdmenu"\
 
 tar --extract --bzip2 --file="$zi3status"\
 && rm "$zi3status"
+
 }
 
 _extract() {
+
 cd ~/m/z/$ftmux\
 && ./configure\
 && make\
-&& sudo make install\
-&& cd ..
+&& sudo make install
 
 cd ~/m/z/$fscim\
 && make -C src\
-&& sudo make -C src install\
-&& cd ..
+&& sudo make -C src install
 
 cd ~/m/z/$fst\
 && sudo make clean install\
@@ -127,16 +145,24 @@ cd ~/m/z/$fi3status\
 && sudo make install\
 && cd ..
 
+cd ~/m/z/$fvim\
+&& make\
+&& sudo make install
+
 mv ~/m/z/$ffzf ~/.fzf\
 && ~/.fzf/install
 
-chmod +x ~/m/z/googler\
-&& sudo mv ~/m/z/googler /usr/local/bin/googler\
+cd ~/m/z/\
+&& chmod +x googler\
+&& sudo mv googler /usr/local/bin/googler\
 && sudo googler -u
 
 cd ~/m/z/$fst\
-&& sudo make clean install\
-&& cd ..
+&& sudo make clean install
+
+cd ~/m/z/$fdocker\
+&& sudo dpkg -i *.deb
+
 }
 
 _link() {
