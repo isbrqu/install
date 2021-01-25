@@ -51,9 +51,13 @@ sudo apt update\
 	asciidoc\
 	libpulse-dev\
 	libnl-genl-3-dev\
+        xinput\
 	libx11-dev\
 	libxft-dev\
-        xinput
+        libxtst-dev\
+        libxt-dev\
+        libsm-dev\
+        libxpm-dev
 }
 
 _download() {
