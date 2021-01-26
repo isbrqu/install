@@ -63,6 +63,9 @@ sudo apt update\
         libxt-dev\
         libsm-dev\
         libxpm-dev\
+        alsa-oss\
+        alsa-utils\
+        pulseudio\
 && sudo apt remove\
     vim\
     vim-common\
