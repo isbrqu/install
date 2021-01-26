@@ -33,39 +33,41 @@ _apt() {
 sudo apt update\
 && sudo apt upgrade -y\
 && sudo apt install -y\
-	git\
-	curl\
-	neofetch\
-	xclip\
-	xorg\
-	autoconf\
-	ntfs-3g\
-	i3\
-	python3-pip\
-        liblua5.3-dev\
-        lua5.3\
-	build-essential\
-	bison\
-	pkg-config\
-	libevent-dev\
-	ncurses-dev\
-	libconfuse-dev\
-	libyajl-dev\
-	libasound2-dev\
-	libiw-dev\
-	asciidoc\
-	libpulse-dev\
-	libnl-genl-3-dev\
-        xinput\
-	libx11-dev\
-	libxft-dev\
-        libxtst-dev\
-        libxt-dev\
-        libsm-dev\
-        libxpm-dev\
-        alsa-oss\
-        alsa-utils\
-        pulseudio\
+    git\
+    curl\
+    neofetch\
+    xclip\
+    xorg\
+    autoconf\
+    ntfs-3g\
+    i3\
+    python3-pip\
+    liblua5.3-dev\
+    lua5.3\
+    build-essential\
+    bison\
+    pkg-config\
+    libevent-dev\
+    ncurses-dev\
+    libconfuse-dev\
+    libyajl-dev\
+    libasound2-dev\
+    libiw-dev\
+    asciidoc\
+    libpulse-dev\
+    libnl-genl-3-dev\
+    xinput\
+    libx11-dev\
+    libxft-dev\
+    libxtst-dev\
+    libxt-dev\
+    libsm-dev\
+    libxpm-dev\
+    alsa-oss\
+    alsa-utils\
+    pulseudio\
+    mpv\
+    silversearcher-ag\
 && sudo apt remove\
     vim\
     vim-common\
