@@ -68,6 +68,7 @@ sudo apt update\
     pulseudio\
     mpv\
     silversearcher-ag\
+    apt-file\
 && sudo apt remove\
     vim\
     vim-common\
