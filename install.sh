@@ -18,6 +18,7 @@ url_fzf="https://github.com/junegunn/fzf.git"
 url_st="https://github.com/isbrqu/st.git"
 url_googler="https://raw.githubusercontent.com/jarun/googler/v4.3.1/googler"
 url_docker='https://download.docker.com/linux/debian/dists/buster/pool/stable/amd64'
+url_chrome='https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
 
 ftmux="${ztmux%.tar.gz}"
 fscim="sc-im-0.7.0"
@@ -107,6 +108,12 @@ echo "docker"
 && wget "$url_docker/docker-ce_20.10.2~3-0~debian-buster_amd64.deb" --quiet\
 && cd ..
 
+echo "chrome"
+([[ -d chrome ]] || mkdir chrome)\
+&& cd chrome\
+&& wget "$url_chrome" --quiet\
+&& cd ..
+
 tar --extract --gunzip --file="$ztmux"\
 && rm "$ztmux"
 
@@ -163,6 +170,9 @@ cd ~/m/z/$fst\
 cd ~/m/z/$fdocker\
 && sudo dpkg -i *.deb
 
+cd ~/m/z/$fchrome\
+&& sudo apt install ./*.deb -y\
+&& sudo apt --fix-broken install -y
 }
 
 _link() {
