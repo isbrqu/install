@@ -19,6 +19,7 @@ url_st="https://github.com/isbrqu/st.git"
 url_googler="https://raw.githubusercontent.com/jarun/googler/v4.3.1/googler"
 url_docker='https://download.docker.com/linux/debian/dists/buster/pool/stable/amd64'
 url_chrome='https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+url_telegram="https://telegram.org/dl/desktop/linux"
 
 ftmux="${ztmux%.tar.gz}"
 fscim="sc-im-0.7.0"
@@ -69,6 +70,9 @@ sudo apt update\
     mpv\
     silversearcher-ag\
     apt-file\
+    network-manager\
+    flameshot\
+    xutils-dev\
 && sudo apt remove\
     vim\
     vim-common\
@@ -118,6 +122,12 @@ echo "chrome"
 ([[ -d chrome ]] || mkdir chrome)\
 && cd chrome\
 && wget "$url_chrome" --quiet\
+&& cd ..
+
+echo "telegram"
+([[ -d telegram ]] || mkdir telegram)\
+&& cd telegram\
+&& wget "$url_telegram" --quiet\
 && cd ..
 
 tar --extract --gunzip --file="$ztmux"\
