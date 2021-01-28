@@ -73,6 +73,8 @@ sudo apt update\
     network-manager\
     flameshot\
     xutils-dev\
+    tree\
+    maim\
 && sudo apt remove\
     vim\
     vim-common\
