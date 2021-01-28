@@ -4,12 +4,12 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-ztmux='tmux-3.1c.tar.gz'
+ztmux='tmux-3.2-rc3.tar.gz'
 zscim='v0.7.0.tar.gz'
 zdmenu='dmenu-5.0.tar.gz'
 zi3status='i3status-2.13.tar.bz2'
 
-url_tmux="https://github.com/tmux/tmux/releases/download/3.1c/$ztmux"
+url_tmux="https://github.com/tmux/tmux/releases/download/3.2-rc/$ztmux"
 url_scim="https://github.com/andmarti1424/sc-im/archive/$zscim"
 url_dmenu="https://dl.suckless.org/tools/$zdmenu"
 url_i3status="https://i3wm.org/i3status/$zi3status"
