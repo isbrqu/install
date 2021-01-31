@@ -36,6 +36,7 @@ sudo apt update\
 && sudo apt install -y\
     git\
     curl\
+    jq\
     neofetch\
     xclip\
     xorg\
