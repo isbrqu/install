@@ -187,7 +187,9 @@ cd ~/m/z/$fst\
 && sudo make clean install
 
 cd ~/m/z/$fdocker\
-&& sudo dpkg -i *.deb
+&& sudo dpkg -i *.deb\
+&& sudo usermod -aG docker $USER\
+&& newgrp docker
 
 cd ~/m/z/$fchrome\
 && sudo apt install ./*.deb -y\
