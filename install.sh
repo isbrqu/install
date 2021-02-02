@@ -44,6 +44,7 @@ sudo apt update\
     ntfs-3g\
     i3\
     python3-pip\
+    python3-venv\
     liblua5.3-dev\
     lua5.3\
     build-essential\
