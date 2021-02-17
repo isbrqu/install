@@ -9,17 +9,25 @@ zscim='v0.7.0.tar.gz'
 zdmenu='dmenu-5.0.tar.gz'
 zi3status='i3status-2.13.tar.bz2'
 
-url_tmux="https://github.com/tmux/tmux/releases/download/3.2-rc/$ztmux"
-url_scim="https://github.com/andmarti1424/sc-im/archive/$zscim"
-url_dmenu="https://dl.suckless.org/tools/$zdmenu"
-url_i3status="https://i3wm.org/i3status/$zi3status"
-url_vim="https://github.com/vim/vim.git"
-url_fzf="https://github.com/junegunn/fzf.git"
-url_st="https://github.com/isbrqu/st.git"
-url_googler="https://raw.githubusercontent.com/jarun/googler/v4.3.1/googler"
-url_docker='https://download.docker.com/linux/debian/dists/buster/pool/stable/amd64'
-url_chrome='https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
-url_telegram="https://telegram.org/dl/desktop/linux"
+declare -r GITHUB='https://github.com'
+declare -r GITHUB_RAW='https://raw.githubusercontent.com'
+declare -r SUCKLESS='https://dl.suckless.org/tools'
+declare -r GOOGLE='https://dl.google.com'
+declare -r DOCKER='https://download.docker.com'
+declare -r I3WM='https://i3wm.org'
+declare -r TELEGRAM='https://telegram.org'
+
+url_tmux="$GITHUB/tmux/tmux/releases/download/3.2-rc/$ztmux"
+url_scim="$GITHUB/andmarti1424/sc-im/archive/$zscim"
+url_dmenu="$SUCKLESS/$zdmenu"
+url_i3status="$I3WM/i3status/$zi3status"
+url_vim="$GITHUB/vim/vim.git"
+url_fzf="$GITHUB/junegunn/fzf.git"
+url_st="$GITHUB/isbrqu/st.git"
+url_googler="$GITHUB_RAW/jarun/googler/v4.3.1/googler"
+url_docker="$DOCKER/linux/debian/dists/buster/pool/stable/amd64"
+url_chrome="$GOOGLE/linux/direct/google-chrome-stable_current_amd64.deb"
+url_telegram="$TELEGRAM/dl/desktop/linux"
 
 ftmux="${ztmux%.tar.gz}"
 fscim="sc-im-0.7.0"
@@ -200,7 +208,7 @@ cd ~/m/z/$fchrome\
 _link() {
 ([[ -d ~/.config ]] || mkdir ~/.config)\
 && cd ~/.config\
-&& git clone --recurse-submodules https://github.com/isbrqu/dot dot\
+&& git clone --recurse-submodules $GITHUB/isbrqu/dot dot\
 && cd dot\
 && ln -fsr vim ~/.vim\
 && ln -fsr rofi ~/.config/rofi\
