@@ -85,6 +85,7 @@ sudo apt update\
     xutils-dev\
     tree\
     maim\
+    xdotool\
 && sudo apt remove\
     vim\
     vim-common\
