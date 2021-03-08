@@ -222,6 +222,8 @@ _link() {
 && ln -fsr i3wm ~/.config/i3\
 && ln -fsr tmux ~/.tmux\
 && ln -fsr tmux/config ~/.tmux.conf
+&& ln -fsr ~/.config/dot/visidata ~/.visidata
+&& ln -fsr ~/.visidata/config ~/.visidatarc
 }
 
 main() {
