@@ -1,0 +1,11 @@
+# startup-debian-9-error-failed-to-start-raise-network-interfaces
+- https://unix.stackexchange.com/a/390324/437147
+
+# possible-missing-firmware-lib-firmware-i915-for-module-i915
+- https://unix.stackexchange.com/q/556946/437147
+
+pip3 install --user gdown
+sudo apt install zathura
+recordar los mimes de zathura y sxiv
+setup -> /etc/network/interfaces.d/setup
+

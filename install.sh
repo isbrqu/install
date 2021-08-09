@@ -86,6 +86,9 @@ sudo apt update\
     tree\
     maim\
     xdotool\
+    exfat-fuse\
+    exfat-utils\
+    parted\
 && sudo apt remove\
     vim\
     vim-common\
