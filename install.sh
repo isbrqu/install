@@ -32,8 +32,8 @@ apt_install() {
 }
 
 download_programs() {
-    while read -r mode name version url;do
-        case "${mode}" in
+    while read -r method name version url;do
+        case "${method}" in
             download)
                 download "${url}" "${name}"
             ;;
