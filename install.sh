@@ -1,42 +1,22 @@
 #!/usr/bin/env bash
 
-declare GITHUB="https://github.com"
-declare GITLAB="https://gitlab.com"
-declare SUCKLESS="https://git.suckless.org"
 declare FOLDER="tmp"
 declare SRC="src"
+declare PROGRAMS="${SRC}/programs.txt"
+declare REQUIREMENTS="${SRC}/requirements.txt" 
 
 clone() {
-    local output="${FOLDER}/${project}"
-    local origin="$1"
-    local project="$2"
-    local author="$3"
-    local tag="$4"
-    local url
-    case "$origin" in
-        github)
-            url="${GITHUB}/${author}/${project}"
-        ;;
-        gitlab)
-            url="${GITLAB}/${author}/${project}"
-        ;;
-        suckless)
-            url="${SUCKLESS}/${project}"
-        ;;
-        *)
-            echo "origin (${origin}) not found for ${project}" >&2
-            return 1
-        ;;
-    esac
-    git clone --quiet --depth 1 --branch="${tag}" -- "${url}" "$folder"
-    echo "${project} (${?})"
-    # --recurse-submodules
+    local url="$1"
+    local name="$2"
+    local version="$3"
+    local output="${FOLDER}/${name}"
+    git clone --depth 1 --branch="${version}" -- "${url}" "$output"
 }
 
 download() {
-    local filename="$1"
-    local url="$2"
-    local output="${FOLDER}/${filename}"
+    local url="$1"
+    local name="$2"
+    local output="${FOLDER}/${name}"
     local -a OPTS_WGET=(--show-progress --continue --output-document)
     wget "${OPTS_WGET[@]}" "${output}" "${url}"
     # local -a OPTS_CURL=(--fail --silent --show-error --location)
@@ -44,19 +24,25 @@ download() {
 }
 
 apt_install() {
-    local file="${SRC}/requirements.txt" 
     sudo apt update
     sudo apt upgrade -y
-    xargs --arg-file="${file}" sudo apt install -y
+    xargs --arg-file="${REQUIREMENTS}" sudo apt install -y
     sudo apt remove vim vim-common vim-runtime
     sudo apt autoremove
 }
 
-dowload_programs() {
-    local file="${SRC}/programs.txt"
-    while read -r filename url;do
-        download "${filename}" "${url}"
-    done < "$file"
+download_programs() {
+    while read -r mode name version url;do
+        case "${mode}" in
+            download)
+                download "${url}" "${name}"
+            ;;
+            clone)
+                clone "${url}" "${name}" "${version}" 
+            ;;
+        esac
+        echo "${name} (${?})"
+    done < "${PROGRAMS}"
     # install .deb
     # sudo apt install ./*.deb -y
     # sudo apt --fix-broken install -y
@@ -68,21 +54,12 @@ dowload_programs() {
     # newgrp docker
 }
 
-clone_repositories() {
-    local file="${SRC}/repositories.txt"
-    while read -r origin project author tag;do
-        echo "$origin"
-        clone "${origin}" "${project}" "${author}" "${tag}"
-    done < "$file"
-}
-
-
 main() {
     if [[ ! -d tmp ]];then
         mkdir tmp
     fi
-    # apt_install
-    dowload_programs
+    apt_install
+    download_programs
 }
 
 main

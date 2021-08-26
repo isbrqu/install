@@ -1,3 +1,13 @@
-get-docker.sh  https://get.docker.com
-chrome.deb     https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-telegram.xz    https://telegram.org/dl/desktop/linux
+clone     dmenu          5.0        https://git.suckless.org/dmenu
+clone     dot            main       https://github.com/isbrqu/dot
+clone     fzf            0.27.2     https://github.com/junegunn/fzf
+clone     googler        v4.3.2     https://github.com/jarun/googler
+clone     i3status       2.13       https://github.com/i3/i3status
+clone     sc-im          v0.8.2     https://github.com/andmarti1424/sc-im
+clone     st             0.8.4      https://git.suckless.org/st
+clone     sxiv           v26        https://github.com/muennich/sxiv
+clone     tmux           3.2a       https://github.com/tmux/tmux
+clone     vim            v8.2.3376  https://github.com/vim/vim
+download  chrome.deb     -          https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+download  get-docker.sh  -          https://get.docker.com
+download  telegram.xz    -          https://telegram.org/dl/desktop/linux
