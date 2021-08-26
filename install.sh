@@ -3,13 +3,11 @@
 declare GITHUB="https://github.com"
 declare GITLAB="https://gitlab.com"
 declare SUCKLESS="https://git.suckless.org"
-declare GOOGLE="https://dl.google.com/linux/direct"
-declare GOOGLE="${GOOGLE}/google-chrome-stable_current_amd64.deb"
-declare TELEGRAM="https://telegram.org/dl/desktop/linux"
-
-# declare visidata
+declare FOLDER="tmp"
+declare SRC="src"
 
 clone() {
+    local output="${FOLDER}/${project}"
     local origin="$1"
     local project="$2"
     local author="$3"
@@ -30,55 +28,46 @@ clone() {
             return 1
         ;;
     esac
-    git clone --depth 1 --branch="${tag}" -- "${url}"
+    git clone --quiet --depth 1 --branch="${tag}" -- "${url}" "$folder"
+    echo "${project} (${?})"
     # --recurse-submodules
 }
 
+download() {
+    local filename="$1"
+    local url="$2"
+    local output="${FOLDER}/${filename}"
+    local -a OPTS_WGET=(--show-progress --continue --output-document)
+    wget "${OPTS_WGET[@]}" "${output}" "${url}"
+}
+
 apt_install() {
+    local file="${SRC}/requirements.txt" 
     sudo apt update
     sudo apt upgrade -y
-    xargs --arg-file=src/requirements.txt sudo apt install -y
+    xargs --arg-file="${file}" sudo apt install -y
     sudo apt remove vim vim-common vim-runtime
     sudo apt autoremove
 }
 
-docker_install() {
-    echo "docker"
-    curl -fsSL https://get.docker.com -o get-docker.sh
-    sh get-docker.sh
+dowload_programs() {
+    local file="${SRC}/programs.txt"
+    while read -r filename url;do
+        download "${filename}" "${url}"
+    done < "$file"
+    # install .deb
+    # sudo apt install ./*.deb -y
+    # sudo apt --fix-broken install -y
+    # install docker
+    # sh get-docker.sh
+    # or
     # sudo dpkg -i *.deb
     # sudo usermod -aG docker $USER
     # newgrp docker
 }
 
-chrome_install() {
-    echo "chrome"
-    if [[ ! -d chrome ]];then
-        mkdir chrome
-    fi
-    cd chrome
-    wget --quiet "$GOOGLE"
-    cd ..
-    # sudo apt install ./*.deb -y
-    # sudo apt --fix-broken install -y
-}
-
-telegram_install() {
-    echo "telegram"
-    if [[ -d telegram ]];then
-        mkdir telegram
-    fi
-    cd telegram
-    wget --quiet "$TELEGRAM"
-    cd ..
-}
-
-programs_install() {
-    local file="../src/programs.txt"
-    if [[ ! -d programs ]];then
-        mkdir programs
-    fi
-    cd programs
+clone_repositories() {
+    local file="${SRC}/repositories.txt"
     while read -r origin project author tag;do
         echo "$origin"
         clone "${origin}" "${project}" "${author}" "${tag}"
@@ -87,11 +76,11 @@ programs_install() {
 
 
 main() {
-    apt_install
-    chrome_install
-    telegram_install
-    programs_install
-    
+    if [[ ! -d tmp ]];then
+        mkdir tmp
+    fi
+    # apt_install
+    dowload_programs
 }
 
 main

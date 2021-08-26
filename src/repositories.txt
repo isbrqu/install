@@ -7,6 +7,4 @@ github    sxiv           muennich      v26
 suckless  dmenu          suckless      5.0
 suckless  st             suckless      0.8.4
 github    vim            vim           v8.2.3376
-google    google-chrome  google        -
-telegram  telegram       telegram      -
-github    dot            isbrqu        -
+github    dot            isbrqu        main
