@@ -39,6 +39,8 @@ download() {
     local output="${FOLDER}/${filename}"
     local -a OPTS_WGET=(--show-progress --continue --output-document)
     wget "${OPTS_WGET[@]}" "${output}" "${url}"
+    # local -a OPTS_CURL=(--fail --silent --show-error --location)
+    # curl "${OPTS_CURL[@]}" "${url}" --output "${output}"
 }
 
 apt_install() {
