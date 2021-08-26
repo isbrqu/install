@@ -1,3 +1,27 @@
+# with git
+
+- tmux      3.2a
+- googler   v4.3.2
+- scim      v0.8.2
+- vim       v8.2.3376
+- fzf       0.27.2
+- i3status  2.13
+- dmenu     5.0
+- st        0.8.4 
+- googler   v4.3.2
+
+# with pip3
+
+- visidata  v2.5
+- 
+
+# with wget
+
+- google
+- telegram
+- docker
+
+# errors
 # startup-debian-9-error-failed-to-start-raise-network-interfaces
 - https://unix.stackexchange.com/a/390324/437147
 
@@ -9,3 +33,11 @@ sudo apt install zathura
 recordar los mimes de zathura y sxiv
 setup -> /etc/network/interfaces.d/setup
 
+auto lo
+iface lo inet loopback
+
+auto enp2s0
+iface enp2s0 inet dhcp
+
+auto eth0
+iface eth0 inet dhcp
