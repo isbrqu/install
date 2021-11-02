@@ -55,6 +55,7 @@ download_programs() {
 }
 
 main() {
+    # TODO: use mktemp with dir
     if [[ ! -d tmp ]];then
         mkdir tmp
     fi
