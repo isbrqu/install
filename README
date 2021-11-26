@@ -1,15 +1,36 @@
+# firmware list
+https://wiki.debian.org/Firmware/List
+
 # errors
 # startup-debian-9-error-failed-to-start-raise-network-interfaces
 - https://unix.stackexchange.com/a/390324/437147
 
+# Debian stretch failed to load firmware rtl_nic/rtl8168g-3.fw (-2)
+- https://unix.stackexchange.com/a/384411
+
 # possible-missing-firmware-lib-firmware-i915-for-module-i915
 - https://unix.stackexchange.com/q/556946/437147
+- https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
+- https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/rtl_bt
+- https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/rtl_nic
+- https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/rtlwifi
+sudo apt update
+sudo apt install firmware-linux
+sudo update-initramfs -u -k all
 
-pip3 install --user gdown
-sudo apt install zathura
-recordar los mimes de zathura y sxiv
+optional:
+in /lib/firmware/rtl_bt/*
+in /lib/firmware/rtl_nic/*
+and repeat
+
+# Bluetooth Firmware rtl8821a_fw.bin Fails to Load in Debian
+rtl8821a_config.bin not found
+- https://unix.stackexchange.com/a/672717
+- https://forums.debian.net/viewtopic.php?t=135025
+
+recordar los mimes de zathura, sxiv
+
 setup -> /etc/network/interfaces.d/setup
-
 auto lo
 iface lo inet loopback
 
