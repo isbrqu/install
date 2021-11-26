@@ -1,9 +1,0 @@
-visidata
-# pyfzf
-# iterfzf
-# MechanicalSoup
-# beautifulsoup4
-# scrapy
-# bitso-py
-# instalooter
-# gallery-dl
