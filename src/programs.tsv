@@ -1,39 +1,45 @@
-method	name	version	source_url	dest	script	type	doc_url	dep
-clone	dot	main	https://github.com/isbrqu/dot	-	-	code	-	-
-clone	googler	v4.3.2	https://github.com/jarun/googler	-	-	cli	-	-
-clone	i3status	2.13	https://github.com/i3/i3status	-	-	gui	-	-
-clone	sc-im	v0.8.2	https://github.com/andmarti1424/sc-im	-	-	tui	-	-
-clone	fzf	0.27.2	https://github.com/junegunn/fzf	-	-	cli	-	-
-clone	tmux	3.2a	https://github.com/tmux/tmux	-	-	tui	-	automake,autoconf,pkg-config,make,gawk,gcc,libevent-dev,libncurses-dev,build-essential,bison
-clone	dmenu	5.0	https://git.suckless.org/dmenu	-	-	gui	-	-
-clone	st	0.8.4	https://git.suckless.org/st	-	-	gui	-	-
-clone	sxiv	v26	https://github.com/muennich/sxiv	-	-	gui	-	-
-download	google chrome	-	https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb	chrome.deb	-	gui	-	-
-download	docker	-	https://get.docker.com	get-docker.sh	-	cli	-	-
-download	telegram	-	https://telegram.org/dl/desktop/linux	telegram.xz	-	gui	-	-
-apt	git	-	-	-	-	cli	-	-
-apt	jq	-	-	-	-	cli	-	-
-apt	curl	-	-	-	-	cli	-	-
-apt	mpv	-	-	-	-	gui	-	-
-apt	zathura	-	-	-	-	gui	-	-
-apt	exfat-fuse	-	-	-	-	lib	-	-
-apt	exfat-utils	-	-	-	-	lib	-	-
-apt	ntfs-3g	-	-	-	-	lib	-	-
-apt	silversearcher-ag	-	-	-	-	cli	-	-
-apt	tree	-	-	-	-	cli	-	-
-apt	network-manager	-	-	-	-	cli	-	-
-apt	parted	-	-	-	-	tui	-	-
-apt	neofetch	-	-	-	-	cli	-	-
-apt	pkg-config	-	-	-	-	cli	-	-
-apt	lua				-	lang	-	-
-apt	gawk	-	-	-	-	cli	-	-
-apt	automake	-	-	-	-	cli	-	-
-apt	autoconf	-	-	-	-	cli	-	-
-apt	pkg-config	-	-	-	-	cli	-	-
-apt	make	-	-	-	-	cli	-	-
-apt	gcc	-	-	-	-	cli	-	-
-apt	libncurses-dev	-	-	-	-	lib	-	-
-apt	libevent-dev	-	-	-	-	lib	-	-
-apt	build-essential	-	-	-	-	cli	-	-
-apt	bison	-	-	-	-	cli	-	-
-clone	vim	last	https://github.com/vim/vim	-	-	tui	-	-
+n	method	name	version	source_url	dest	script	type	doc_url	dep
+0	apt	git	-	-	-	-	cli	-	-
+0	apt	curl	-	-	-	-	cli	-	-
+0	apt	exfat-fuse	-	-	-	-	lib	-	-
+0	apt	exfat-utils	-	-	-	-	lib	-	-
+0	apt	ntfs-3g	-	-	-	-	lib	-	-
+0	apt	network-manager	-	-	-	-	cli	-	-
+0	apt	lua				-	lang	-	-
+0	apt	gawk	-	-	-	-	cli	-	-
+0	apt	make	-	-	-	-	cli	-	-
+1	clone	dot	main	https://github.com/isbrqu/dot	-	-	code	-	-
+1	download	docker	-	https://get.docker.com	get-docker.sh	-	cli	-	-
+1	apt	libncurses-dev	-	-	-	-	lib	-	-
+1	apt	libevent-dev	-	-	-	-	lib	-	-
+1	apt	pkg-config	-	-	-	-	cli	-	-
+1	apt	automake	-	-	-	-	cli	-	-
+1	apt	autoconf	-	-	-	-	cli	-	-
+1	apt	pkg-config	-	-	-	-	cli	-	-
+1	apt	gcc	-	-	-	-	cli	-	-
+1	apt	build-essential	-	-	-	-	cli	-	-
+1	apt	bison	-	-	-	-	cli	-	-
+3	npm	spotify-dl	-	-	-	-	cli	-	-
+3	pip	googler	v4.3.2	https://github.com/jarun/googler	-	-	cli	-	-
+3	pip	ddgr	v1.9	https://github.com/jarun/googler	-	-	cli	-	-
+3	pip	instalooter	-	-	-	-	cli	-	-
+3	pip	gallery-dl	-	-	-	-	cli	-	-
+4	pip	visidata	-	-	-	-	cli	-	-
+4	clone	i3status	2.13	https://github.com/i3/i3status	-	-	gui	-	-
+4	clone	sc-im	v0.8.2	https://github.com/andmarti1424/sc-im	-	-	tui	-	-
+4	clone	fzf	0.27.2	https://github.com/junegunn/fzf	-	-	cli	-	-
+4	clone	tmux	3.2a	https://github.com/tmux/tmux	-	-	tui	-	automake,autoconf,pkg-config,make,gawk,gcc,libevent-dev,libncurses-dev,build-essential,bison
+4	clone	st	0.8.4	https://git.suckless.org/st	-	-	gui	-	-
+4	apt	jq	-	-	-	-	cli	-	-
+4	apt	silversearcher-ag	-	-	-	-	cli	-	-
+4	apt	tree	-	-	-	-	cli	-	-
+4	apt	parted	-	-	-	-	tui	-	-
+4	apt	neofetch	-	-	-	-	cli	-	-
+4	clone	vim	-	https://github.com/vim/vim	-	-	tui	-	-
+5	pip	scrapy	-	-	-	-	cli	-	-
+5	clone	dmenu	5.0	https://git.suckless.org/dmenu	-	-	gui	-	-
+5	clone	sxiv	v26	https://github.com/muennich/sxiv	-	-	gui	-	-
+5	apt	mpv	-	-	-	-	gui	-	-
+5	apt	zathura	-	-	-	-	gui	-	-
+5	download	google chrome	-	https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb	chrome.deb	-	gui	-	-
+5	download	telegram	-	https://telegram.org/dl/desktop/linux	telegram.xz	-	gui	-	-
