@@ -8,6 +8,7 @@ n	method	name	version	source_url	dest	script	type	doc_url	dep
 0	apt	lua				-	lang	-	-
 0	apt	gawk	-	-	-	-	cli	-	-
 0	apt	make	-	-	-	-	cli	-	-
+0	apt	firmware-realtek	-	-	-	-	lib	-	-
 1	clone	dot	main	https://github.com/isbrqu/dot	-	-	code	-	-
 1	download	docker	-	https://get.docker.com	get-docker.sh	-	cli	-	-
 1	apt	libncurses-dev	-	-	-	-	lib	-	-
