@@ -1,29 +1,39 @@
-method	script	name	type	dest	version	source_url	doc_url
-clone		dot	code	-	main	https://github.com/isbrqu/dot	
-clone		googler	cli	-	v4.3.2	https://github.com/jarun/googler	
-clone		i3status	gui	-	2.13	https://github.com/i3/i3status	
-clone		sc-im	tui	-	v0.8.2	https://github.com/andmarti1424/sc-im	
-clone		fzf	cli	-	0.27.2	https://github.com/junegunn/fzf	
-clone		tmux	tui	-	3.2a	https://github.com/tmux/tmux	
-clone		vim	tui	-	v8.2.3376	https://github.com/vim/vim	
-clone		dmenu	gui	-	5.0	https://git.suckless.org/dmenu	
-clone		st	gui	-	0.8.4	https://git.suckless.org/st	
-clone		sxiv	gui	-	v26	https://github.com/muennich/sxiv	
-apt		git	cli	-	-	-	
-apt		jq	cli	-	-	-	
-apt		curl	cli	-	-	-	
-apt		mpv	gui	-	-	-	
-apt		zathura	gui	-	-	-	
-apt		exfat-fuse	lib	-	-	-	
-apt		exfat-utils	lib	-	-	-	
-apt		ntfs-3g	lib	-	-	-	
-apt		silversearcher-ag	cli	-	-	-	
-apt		tree	cli	-	-	-	
-apt		network-manager	cli	-	-	-	
-apt		parted	tui	-	-	-	
-apt		neofetch	cli	-	-	-	
-apt		pkg-config	cli	-	-	-	
-download		google chrome	gui	chrome.deb	-	https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb	
-download		docker	cli	get-docker.sh	-	https://get.docker.com	
-download		telegram	gui	telegram.xz	-	https://telegram.org/dl/desktop/linux	
-apt		lua	lang				
+method	name	version	source_url	dest	script	type	doc_url	dep
+clone	dot	main	https://github.com/isbrqu/dot	-	-	code	-	-
+clone	googler	v4.3.2	https://github.com/jarun/googler	-	-	cli	-	-
+clone	i3status	2.13	https://github.com/i3/i3status	-	-	gui	-	-
+clone	sc-im	v0.8.2	https://github.com/andmarti1424/sc-im	-	-	tui	-	-
+clone	fzf	0.27.2	https://github.com/junegunn/fzf	-	-	cli	-	-
+clone	tmux	3.2a	https://github.com/tmux/tmux	-	-	tui	-	automake,autoconf,pkg-config,make,gawk,gcc,libevent-dev,libncurses-dev,build-essential,bison
+clone	dmenu	5.0	https://git.suckless.org/dmenu	-	-	gui	-	-
+clone	st	0.8.4	https://git.suckless.org/st	-	-	gui	-	-
+clone	sxiv	v26	https://github.com/muennich/sxiv	-	-	gui	-	-
+download	google chrome	-	https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb	chrome.deb	-	gui	-	-
+download	docker	-	https://get.docker.com	get-docker.sh	-	cli	-	-
+download	telegram	-	https://telegram.org/dl/desktop/linux	telegram.xz	-	gui	-	-
+apt	git	-	-	-	-	cli	-	-
+apt	jq	-	-	-	-	cli	-	-
+apt	curl	-	-	-	-	cli	-	-
+apt	mpv	-	-	-	-	gui	-	-
+apt	zathura	-	-	-	-	gui	-	-
+apt	exfat-fuse	-	-	-	-	lib	-	-
+apt	exfat-utils	-	-	-	-	lib	-	-
+apt	ntfs-3g	-	-	-	-	lib	-	-
+apt	silversearcher-ag	-	-	-	-	cli	-	-
+apt	tree	-	-	-	-	cli	-	-
+apt	network-manager	-	-	-	-	cli	-	-
+apt	parted	-	-	-	-	tui	-	-
+apt	neofetch	-	-	-	-	cli	-	-
+apt	pkg-config	-	-	-	-	cli	-	-
+apt	lua				-	lang	-	-
+apt	gawk	-	-	-	-	cli	-	-
+apt	automake	-	-	-	-	cli	-	-
+apt	autoconf	-	-	-	-	cli	-	-
+apt	pkg-config	-	-	-	-	cli	-	-
+apt	make	-	-	-	-	cli	-	-
+apt	gcc	-	-	-	-	cli	-	-
+apt	libncurses-dev	-	-	-	-	lib	-	-
+apt	libevent-dev	-	-	-	-	lib	-	-
+apt	build-essential	-	-	-	-	cli	-	-
+apt	bison	-	-	-	-	cli	-	-
+clone	vim	last	https://github.com/vim/vim	-	-	tui	-	-

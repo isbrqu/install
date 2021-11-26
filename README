@@ -1,26 +1,3 @@
-# with git
-
-- tmux      3.2a
-- googler   v4.3.2
-- scim      v0.8.2
-- vim       v8.2.3376
-- fzf       0.27.2
-- i3status  2.13
-- dmenu     5.0
-- st        0.8.4 
-- googler   v4.3.2
-
-# with pip3
-
-- visidata  v2.5
-- 
-
-# with wget
-
-- google
-- telegram
-- docker
-
 # errors
 # startup-debian-9-error-failed-to-start-raise-network-interfaces
 - https://unix.stackexchange.com/a/390324/437147
