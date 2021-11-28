@@ -1,5 +1,9 @@
 n	method	name	version	source_url	dest	script	type	doc_url	dep
 0	apt	git	-	-	-	-	cli	-	-
+0	apt	python3-pip	-	-	-	-	cli	-	-
+0	apt	asciidoc	-	-	-	-	cli	-	-
+0	apt	xclip	-	-	-	-	cli	-	-
+0	apt	python3-venv	-	-	-	-	cli	-	-
 0	apt	curl	-	-	-	-	cli	-	-
 0	apt	exfat-fuse	-	-	-	-	lib	-	-
 0	apt	exfat-utils	-	-	-	-	lib	-	-
@@ -16,7 +20,6 @@ n	method	name	version	source_url	dest	script	type	doc_url	dep
 1	apt	pkg-config	-	-	-	-	cli	-	-
 1	apt	automake	-	-	-	-	cli	-	-
 1	apt	autoconf	-	-	-	-	cli	-	-
-1	apt	pkg-config	-	-	-	-	cli	-	-
 1	apt	gcc	-	-	-	-	cli	-	-
 1	apt	build-essential	-	-	-	-	cli	-	-
 1	apt	bison	-	-	-	-	cli	-	-
